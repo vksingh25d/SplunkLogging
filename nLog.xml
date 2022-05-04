@@ -7,7 +7,7 @@
 		<target name="Splunk"
 				xsi:type="SplunkHttpEventCollector"
 				serverUrl="http://127.0.0.1:8088"
-				token="589435e2-2657-47a7-b12b-64f18023d12f"
+				token="My Token"
 				channel="channel-guid"				
 				retriesOnError="0"
 				batchSizeBytes="0"

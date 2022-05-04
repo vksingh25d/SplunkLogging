@@ -17,9 +17,6 @@ namespace Splunk_Logging
 
             var s = LogManager.LoadConfiguration("nLog.xml");
 
-            //InternalLogger.LogToConsole = true;
-            //InternalLogger.LogLevel = NLog.LogLevel.Trace;
-
             serviceCollection.AddLogging(o =>
             {
                 o.ClearProviders();
