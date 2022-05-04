@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+	<extensions>
+		<add assembly="NLog.Targets.Splunk" />
+	</extensions>
+	<targets>
+		<target name="Splunk"
+				xsi:type="SplunkHttpEventCollector"
+				serverUrl="http://127.0.0.1:8088"
+				token="589435e2-2657-47a7-b12b-64f18023d12f"
+				channel="channel-guid"				
+				retriesOnError="0"
+				batchSizeBytes="0"
+				batchSizeCount="0"
+				includeEventProperties="true"
+				includePositionalParameters="false"
+				includeMdlc="false"
+				maxConnectionsPerServer="10"
+				ignoreSslErrors="false"
+            >
+			<contextproperty name="host" layout="${machinename}" />
+			<contextproperty name="threadid" layout="${threadid}" />
+			<contextproperty name="logger" layout="${logger}" />
+		</target>
+	</targets>
+	<rules>
+		<logger name="*" minlevel="Trace" writeTo="Splunk" />
+	</rules>
+</nlog>
